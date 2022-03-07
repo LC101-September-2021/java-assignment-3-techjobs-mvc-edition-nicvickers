@@ -1,16 +1,13 @@
-package org.launchcode.techjobs.mvc.models;
+package org.launchcode.javawebdevtechjobsmvc.models;
 
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVParser;
 import org.apache.commons.csv.CSVRecord;
-import org.launchcode.techjobs.mvc.NameSorter;
+import org.launchcode.javawebdevtechjobsmvc.NameSorter;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.Reader;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -231,4 +228,3 @@ public class JobData {
     }
 
 }
-
