@@ -1,13 +1,12 @@
-package org.launchcode.techjobs.mvc.controllers;
+package org.launchcode.javawebdevtechjobsmvc.controllers;
 
-
-import org.launchcode.techjobs.mvc.models.Job;
-import org.launchcode.techjobs.mvc.models.JobData;
+import org.launchcode.javawebdevtechjobsmvc.models.Job;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+
+import org.launchcode.javawebdevtechjobsmvc.models.JobData;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -35,7 +34,7 @@ public class ListController {
         tableChoices.put("coreCompetency", JobData.getAllCoreCompetency());
     }
 
-    @GetMapping(value = "")
+    @RequestMapping(value = "")
     public String list(Model model) {
         model.addAttribute("columns", columnChoices);
         model.addAttribute("tableChoices", tableChoices);
@@ -47,10 +46,10 @@ public class ListController {
         return "list";
     }
 
-    @GetMapping(value = "jobs")
-    public String listJobsByColumnAndValue(Model model, @RequestParam String column, @RequestParam(required = false) String value) {
+    @RequestMapping(value = "jobs")
+    public String listJobsByColumnAndValue(Model model, @RequestParam String column, @RequestParam String value) {
         ArrayList<Job> jobs;
-        if (column.equals("all")){
+        if (column.toLowerCase().equals("all")){
             jobs = JobData.findAll();
             model.addAttribute("title", "All Jobs");
         } else {
